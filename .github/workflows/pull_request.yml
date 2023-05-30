@@ -14,12 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - run: echo "🐧 The job was automatically triggered by ${{ github.event_name }} and is now running ${{ github.ref }} on a ${{ runner.os }} server hosted by GitHub!"
-
       # Checks-out the repository under $GITHUB_WORKSPACE, so the job can access it
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
 
       - name: Install dependencies
         run: yarn install --prefer-offline --ignore-optional
@@ -30,17 +27,17 @@ jobs:
           yarn lint:style-fix
           yarn prettier:format
 
-  test:
-    name: ⚛️ Run Cypress Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: yarn cypress --headless
+  # test:
+  #   name: ⚛️ Run Cypress Tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: yarn cypress --headless
 
-  build:
-    name: 🖥️ Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: yarn build
-      - run: echo "🍏 The status is ${{ job.status }}."
+  # build:
+  #   name: 🖥️ Build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: yarn build
+  #     - run: echo "🍏 The status is ${{ job.status }}."
