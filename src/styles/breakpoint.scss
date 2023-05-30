@@ -1,0 +1,60 @@
+/**
+ * Breakpoint mixins
+ **/
+
+$screen-xs: 320px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1600px;
+
+// Extra Small devices
+@mixin xs {
+  @media (min-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+// Extra extra large devices
+@mixin xxl {
+  @media (min-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+.show-on-medium-screen {
+  display: none;
+
+  @include md {
+    display: block;
+  }
+}
