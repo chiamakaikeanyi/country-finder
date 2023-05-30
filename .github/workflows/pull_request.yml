@@ -1,7 +1,5 @@
 name: CI [PR]
 
-run-name: ${{ github.actor }} is about to run GitHub Actions 🚀
-
 on:
   pull_request:
 
