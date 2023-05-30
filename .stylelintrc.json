@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "font-family-name-quotes": "always-where-required",
+    "order/properties-alphabetical-order": true,
+    "scss/dollar-variable-pattern": null
+  }
+}
