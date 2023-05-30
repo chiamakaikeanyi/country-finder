@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #222;
+  font-family: Nunito Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+// attributes & states
+[hidden] {
+  display: none !important;
+}
+
+[disabled] {
+  cursor: not-allowed;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// disable WebKit’s proprietary pseudo elements
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+// utility classes
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  margin: 0;
+}
