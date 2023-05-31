@@ -1,0 +1,33 @@
+@import "./styles/shared";
+
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  align-items: center;
+  background-color: $palette--white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.main {
+  margin: 30px auto;
+  padding-bottom: 80px;
+}
+
+.footer {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
