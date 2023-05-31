@@ -1,6 +1,30 @@
-# Country finder
+# Country Finder 🌍
 
-## Features
+![Design preview](./design/desktop-preview.jpg)
+
+## Table of contents
+
+-   [Overview](#overview)
+    -   [Built with](#built-with)
+    -   [Features](#features)
+    -   [Author](#author)
+
+## Overview
+
+-   [View project](https://country-finda.netlify.app/)
+
+### Built with
+
+-   Mobile-first workflow
+-   Semantic HTML5 markup
+-   Flexbox
+-   CSS Grid
+-   [ReactJs](https://reactjs.org/)
+-   [SCSS](https://sass-lang.com/)
+-   [Font Awesome](https://fontawesome.com). [Ionicons](https://ionicons.com) is also a good source
+-   [Netlify](https://www.netlify.com/)
+
+### Features
 
 Users should be able to:
 
