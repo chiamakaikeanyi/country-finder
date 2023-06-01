@@ -3,7 +3,7 @@
  * @param {String} styles Classes/Styles to be applied
  * @returns {String} Combined classes
  */
-export const classNames = (...styles: string[]) => {
+export const composeClass = (...styles: string[]) => {
   let classes = "";
 
   styles.forEach((arg) => {
