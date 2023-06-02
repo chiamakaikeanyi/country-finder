@@ -1,1 +1,38 @@
 @import "../../styles/shared";
+
+.container {
+  @include shadow;
+
+  background-color: var(--bg-color);
+  border-radius: to-rem(8px);
+  color: var(--font-color);
+  word-wrap: break-word;
+}
+
+.image {
+  border-top-left-radius: to-rem(8px);
+  border-top-right-radius: to-rem(8px);
+  display: block;
+  height: to-rem(220px);
+  object-fit: cover;
+  width: 100%;
+}
+
+.content {
+  padding: to-rem(30px);
+}
+
+.heading {
+  font-weight: $font-weight-bolder;
+  margin-bottom: to-rem(20px);
+}
+
+.info {
+  display: flex;
+  margin: to-rem(5px) 0;
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-right: to-rem(5px);
+  }
+}

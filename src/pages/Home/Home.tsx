@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <article data-testid="home_container" className={styles.container}>
+    <section data-testid="home_container" className={styles.container}>
       <div className={styles.content__filters}>Add Search and Filter here</div>
       {isLoading || countries?.length === 0 ? (
         <EmptyState
@@ -29,7 +29,7 @@ export default function Home() {
           }
         />
       ) : (
-        <div className={styles.countries__wrapper}>
+        <article className={styles.countries__wrapper}>
           {countries?.map((country) => (
             <Link
               to={`/${country.cca3.toLowerCase()}`}
@@ -44,8 +44,8 @@ export default function Home() {
               />
             </Link>
           ))}
-        </div>
+        </article>
       )}
-    </article>
+    </section>
   );
 }
