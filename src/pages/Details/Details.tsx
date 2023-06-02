@@ -23,7 +23,7 @@ export default function Details() {
           loading="lazy"
           alt={
             country?.flags?.alt
-              ? `${country?.flags?.alt}`
+              ? country?.flags?.alt
               : `${country?.name.common} flag`
           }
           width="150px"
@@ -73,7 +73,7 @@ export default function Details() {
           </p>
           {country?.currencies && (
             <p className={styles.info}>
-              <span className={styles.info__title}>Currencies:</span>:
+              <span className={styles.info__title}>Currencies:</span>
               {Object.values(country.currencies).map((currency: any) => (
                 <span className={styles.info__title} key={currency.name}>
                   {currency.name}
@@ -91,13 +91,13 @@ export default function Details() {
           )}
           {country?.car && (
             <p className={styles.info}>
-              <span className={styles.info__title}>Driver&apos;s Side</span>
+              <span className={styles.info__title}>Driver&apos;s Side:</span>
               {Object.values(country.car.side)}
             </p>
           )}
           {country?.timezones && (
             <p className={styles.info}>
-              <span className={styles.info__title}>Timezones</span>
+              <span className={styles.info__title}>Timezones:</span>
               {country.timezones}
             </p>
           )}
@@ -105,7 +105,7 @@ export default function Details() {
 
         {country?.borders && (
           <div className={styles.body}>
-            <span className={styles.info__title}>Border Countries</span>:
+            <span className={styles.info__title}>Border Countries:</span>
             {country.borders.map((country: string) => (
               <Link to={`/${country.toLowerCase()}`} key={country}>
                 {country}
