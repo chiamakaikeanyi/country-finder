@@ -8,12 +8,12 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link to="/">
-          <h1>Where in the world</h1>
+          <h1>Where in the world?</h1>
         </Link>
       </nav>
       <div className={styles.themeSwitch}>
         <MoonIcon />
-        <span className="sr-only">Switch to dark mode</span>
+        <span>Dark mode</span>
       </div>
     </header>
   );
