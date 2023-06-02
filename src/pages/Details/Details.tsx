@@ -21,7 +21,7 @@ export default function Details() {
       data-testid="details_container"
       customClass={styles.container}
       metaTitle={country?.name?.common}
-      metaDescription={`${country?.name?.common} is a country located in ${country?.region} and is officially known as ${country?.name?.official}`}
+      metaDescription={`${country?.name?.common} is a country located in ${country?.continents?.[0]} and is made up of ${country?.population} people`}
     >
       <article>
         <img
