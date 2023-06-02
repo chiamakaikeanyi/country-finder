@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 import { getCountryByCode } from "../../api-client";
 import styles from "./Details.module.scss";
 
@@ -17,6 +19,14 @@ export default function Details() {
 
   return (
     <section data-testid="details_container" className={styles.container}>
+      <Helmet>
+        <title>{`${country?.name?.common} - Country Finder`}</title>
+        <meta
+          name="description"
+          content={`${country?.name?.common} is a country located in ${country?.continents?.[0]} and is made up of ${country?.population} people`}
+        />
+        ‍
+      </Helmet>
       <article>
         <img
           src={country?.flags.svg}
