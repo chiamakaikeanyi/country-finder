@@ -9,8 +9,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container">
+        <a href="#main" className="skip-to-main-content">
+          Skip to main content
+        </a>
         <Header />
-        <main className="main">
+        <main id="main" className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:countryCode" element={<Details />} />
