@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCountryByCode } from "../../api-client";
 import styles from "./Details.module.scss";
+import Layout from "../../components/Layout/Layout";
 
 export default function Details() {
   const { countryCode } = useParams();
@@ -16,7 +17,12 @@ export default function Details() {
   }, [countryCode]);
 
   return (
-    <section data-testid="details_container" className={styles.container}>
+    <Layout
+      data-testid="details_container"
+      customClass={styles.container}
+      metaTitle={country?.name?.common}
+      metaDescription={`${country?.name?.common} is a country located in ${country?.region} and is officially known as ${country?.name?.official}`}
+    >
       <article>
         <img
           src={country?.flags.svg}
@@ -114,6 +120,6 @@ export default function Details() {
           </div>
         )}
       </article>
-    </section>
+    </Layout>
   );
 }

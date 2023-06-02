@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getCountries } from "../../api-client";
 import Card from "../../components/Card/Card";
 import styles from "./Home.module.scss";
+import Layout from "../../components/Layout/Layout";
 
 export default function Home() {
   const [countries, setCountries] = useState<Record<string, any>[] | null>(
@@ -20,18 +21,20 @@ export default function Home() {
   }
 
   return (
-    <article data-testid="home_container" className={styles.container}>
-      {countries?.map((country) => (
-        <Link to={`/${country.cca3.toLowerCase()}`} key={country.name.common}>
-          <Card
-            name={country.name.common}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-            flags={country.flags}
-          />
-        </Link>
-      ))}
-    </article>
+    <Layout>
+      <article data-testid="home_container" className={styles.container}>
+        {countries?.map((country) => (
+          <Link to={`/${country.cca3.toLowerCase()}`} key={country.name.common}>
+            <Card
+              name={country.name.common}
+              population={country.population}
+              region={country.region}
+              capital={country.capital}
+              flags={country.flags}
+            />
+          </Link>
+        ))}
+      </article>
+    </Layout>
   );
 }
