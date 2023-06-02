@@ -3,7 +3,7 @@
 .container {
   @include shadow;
 
-  background-color: var(--bg-color);
+  background-color: var(--primary-color);
   border-radius: to-rem(8px);
   color: var(--font-color);
   word-wrap: break-word;
