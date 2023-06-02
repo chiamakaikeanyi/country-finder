@@ -1,3 +1,29 @@
+@import "../../styles/breakpoint";
+@import "../../styles/converter";
+
 .container {
   font-size: to-rem(14px);
+}
+
+.content__filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include sm {
+    flex-direction: row;
+  }
+}
+
+.countries__wrapper {
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  @include xl {
+    .countries__wrapper {
+      grid-gap: 3rem;
+      width: 100%;
+    }
+  }
 }
