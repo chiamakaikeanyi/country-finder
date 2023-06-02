@@ -6,16 +6,16 @@
 }
 
 .main-content {
-  padding: 30px;
+  padding: to-rem(30px);
 }
 
 .skip-to-main-content {
   background: $palette--red;
   color: $palette--white;
-  left: -999px;
-  padding: 5px;
+  left: to-rem(-999px);
+  padding: to-rem(5px);
   position: absolute;
-  top: -50px;
+  top: to-rem(-50px);
   transition: top 1s ease-out;
   z-index: -999;
 
