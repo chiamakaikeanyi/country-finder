@@ -25,7 +25,7 @@ export default function Home() {
       {isLoading || countries?.length === 0 ? (
         <EmptyState
           message={
-            isLoading ? "Loading" : "Country not found. Please try another one"
+            isLoading ? "Loading..." : "Country not found. Please try another one"
           }
         />
       ) : (
