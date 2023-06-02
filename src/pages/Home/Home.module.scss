@@ -1,3 +1,15 @@
+@import "../../styles/breakpoint";
+
 .container {
   font-size: to-rem(14px);
+}
+
+.content__filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include sm {
+    flex-direction: row;
+  }
 }
