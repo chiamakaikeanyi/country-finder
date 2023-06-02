@@ -1,0 +1,27 @@
+@import "./styles/shared";
+
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  padding: to-rem(30px);
+}
+
+.skip-to-main-content {
+  background: $palette--red;
+  color: $palette--white;
+  left: to-rem(-999px);
+  padding: to-rem(5px);
+  position: absolute;
+  top: to-rem(-50px);
+  transition: top 1s ease-out;
+  z-index: -999;
+
+  &:focus {
+    left: 0;
+    top: 0;
+    z-index: 999;
+  }
+}

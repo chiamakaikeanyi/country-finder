@@ -2,9 +2,9 @@
 
 Lets you discover countries around the world
 
-<!-- [View project](https://country-finda.netlify.app/) -->
+<!-- [View project](https://country-finda.netlify.app/) | [View documentation]()-->
 
-![Design preview](./design/desktop-preview.jpg)
+<!-- ![Design preview](./design/desktop-preview.jpg) -->
 
 ### Process
 
@@ -12,11 +12,11 @@ Lets you discover countries around the world
 -   Accessible
 -   SEO optimized
 
-### Technologies Used
+### Tools & Technologies
 
 -   Flexbox
 -   CSS Grid
--   [ReactJs](https://reactjs.org/)
--   [SCSS](https://sass-lang.com/)
 -   [Font Awesome](https://fontawesome.com). [Ionicons](https://ionicons.com) is also a good source
 -   [Netlify](https://www.netlify.com/)
+-   [ReactJs](https://reactjs.org/)
+-   [SCSS](https://sass-lang.com/)

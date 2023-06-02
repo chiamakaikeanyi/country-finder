@@ -1,3 +1,26 @@
+@import "../../styles/shared";
+
+.header {
+  align-items: center;
+  background-color: $palette--white;
+  display: flex;
+  height: to-rem(80px);
+  justify-content: space-between;
+  padding: 0 to-rem(30px);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 .nav {
-  // font-size: 500;
+  font-weight: $font-weight-bolder;
+}
+
+.theme_switch {
+  padding-left: to-rem(8px);
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+  }
 }
