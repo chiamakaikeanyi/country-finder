@@ -11,9 +11,9 @@ const Header: React.FC = () => {
           <h1>Where in the world?</h1>
         </Link>
       </nav>
-      <div className={styles.themeSwitch}>
+      <div className={styles.theme_switch__wrapper}>
         <MoonIcon />
-        <span>Dark mode</span>
+        <span className={styles.theme_switch}>Dark mode</span>
       </div>
     </header>
   );

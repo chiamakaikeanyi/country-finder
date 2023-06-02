@@ -1,5 +1,4 @@
-@import "../../styles/colors";
-@import "../../styles/typography";
+@import "../../styles/shared";
 
 .header {
   align-items: center;
@@ -17,7 +16,11 @@
   font-weight: $font-weight-bolder;
 }
 
-.themeSwitch {
-  align-items: center;
-  display: flex;
+.theme_switch {
+  padding-left: to-rem(8px);
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+  }
 }
