@@ -1,22 +1,17 @@
 # Country Finder 🌍
 
+<!-- [View project](https://country-finda.netlify.app/) -->
+
 ![Design preview](./design/desktop-preview.jpg)
 
-## Table of contents
-
--   [Overview](#overview)
-    -   [Built with](#built-with)
-    -   [Features](#features)
-    -   [Author](#author)
-
-## Overview
-
--   [View project](https://country-finda.netlify.app/)
-
-### Built with
+### Process
 
 -   Mobile-first workflow
--   Semantic HTML5 markup
+-   Accessible
+-   SEO optimized
+
+### Technologies Used
+
 -   Flexbox
 -   CSS Grid
 -   [ReactJs](https://reactjs.org/)
