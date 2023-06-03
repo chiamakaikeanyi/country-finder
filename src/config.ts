@@ -1,3 +1,3 @@
 export default {
-  apiUrl: "https://restcountries.com/v3.1/",
+  apiUrl: "https://restcountries.com/v3.1",
 };
