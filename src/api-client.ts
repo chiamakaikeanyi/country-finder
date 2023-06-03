@@ -30,9 +30,7 @@ export const getCountries = async () => {
 };
 
 export const getCountryByCode = async (code: string) => {
-  return await apiClient({
-    path: `/alpha/${code}`,
-  });
+  return await apiClient({ path: `/alpha/${code}` });
 };
 
 export const getCountryByName = async (name: string) => {
