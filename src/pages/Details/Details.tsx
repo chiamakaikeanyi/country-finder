@@ -65,7 +65,11 @@ export default function Details() {
         </Helmet>
       )}
 
-      <Button icon={<ArrowLeftIcon size={12}/>} label="Back" customClass={styles.back_btn} />
+      <Button
+        icon={<ArrowLeftIcon size={12} />}
+        label="Back"
+        customClass={styles.back_btn}
+      />
 
       <article className={styles.wrapper}>
         {isLoading || error ? (
@@ -96,9 +100,7 @@ export default function Details() {
                 <div>
                   {country?.name?.nativeName && country?.languages && (
                     <p className={styles.info}>
-                      <span className={styles.info__title}>
-                        Native Name(s):
-                      </span>
+                      <span className={styles.info__title}>Native Name:</span>
                       <span className={styles.info__content}>
                         {
                           country.name.nativeName[
@@ -148,16 +150,14 @@ export default function Details() {
                   {country?.currencies && (
                     <p className={styles.info}>
                       <span className={styles.info__title}>Currencies:</span>
-                      {Object.values(country.currencies).map(
-                        (currency: any) => (
-                          <span
-                            className={styles.info__content}
-                            key={currency.name}
-                          >
-                            {currency.name}
-                          </span>
-                        )
-                      )}
+                      {Object.values(country.currencies).map((currency) => (
+                        <span
+                          className={styles.info__content}
+                          key={currency.name}
+                        >
+                          {currency.name}
+                        </span>
+                      ))}
                     </p>
                   )}
                   {country?.languages && (
