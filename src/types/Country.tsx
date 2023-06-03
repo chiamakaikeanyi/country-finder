@@ -13,9 +13,7 @@ export interface ICountry {
   subregion: string;
   capital: string;
   tld: string[];
-  currencies: {
-    name: string;
-  };
+  currencies: Record<string, Record<string, string>>;
   languages: Record<string, string>;
   car: {
     side: string;
