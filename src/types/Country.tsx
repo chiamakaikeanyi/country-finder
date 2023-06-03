@@ -1,26 +1,25 @@
 export interface ICountry {
-  name: {
-    common: string;
-    nativeName: Record<string, Record<string, string>>;
-  };
-  capital: string;
   cca3: string;
-  currencies: {
-    name: string;
-  };
   flags: {
     alt: string;
     svg: string;
   };
-  borders: string[] | null;
-  continents: string[];
-  languages: Record<string, string>;
-  timezones: string[];
-  tld: string[];
+  name: {
+    common: string;
+    nativeName: Record<string, Record<string, string>>;
+  };
   population: number;
   region: string;
   subregion: string;
+  capital: string;
+  tld: string[];
+  currencies: {
+    name: string;
+  };
+  languages: Record<string, string>;
   car: {
     side: string;
   };
+  timezones: string[];
+  borders: string[] | null;
 }
