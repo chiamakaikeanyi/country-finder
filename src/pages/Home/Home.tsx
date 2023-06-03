@@ -5,10 +5,10 @@ import Card from "../../components/Card/Card";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import styles from "./Home.module.scss";
 
+import { ICountry } from "../../types/Country";
+
 export default function Home() {
-  const [countries, setCountries] = useState<Record<string, any>[] | null>(
-    null
-  );
+  const [countries, setCountries] = useState<ICountry[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
