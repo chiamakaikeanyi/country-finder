@@ -65,7 +65,7 @@ export default function Details() {
         </Helmet>
       )}
 
-      <Button icon={<ArrowLeftIcon />} label="Back" />
+      <Button icon={<ArrowLeftIcon size={12}/>} label="Back" customClass={styles.back_btn} />
 
       <article className={styles.wrapper}>
         {isLoading || error ? (

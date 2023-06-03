@@ -58,8 +58,14 @@
   }
 }
 
+.back_btn {
+  @include shadow;
+  padding: to-rem(10 25);
+}
+
 .border_btn {
   @include shadow;
 
   margin: 2px;
+  padding: to-rem(5 25);
 }
