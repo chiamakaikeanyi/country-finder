@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
-import { MoonIcon } from "../Icons/Moon";
+import { MoonIcon } from "../Icons";
 
 const Header: React.FC = () => {
   return (
