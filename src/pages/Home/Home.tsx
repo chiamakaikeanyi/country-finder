@@ -5,10 +5,10 @@ import Card from "../../components/Card/Card";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import styles from "./Home.module.scss";
 
+import { ICountry } from "../../types/Country";
+
 export default function Home() {
-  const [countries, setCountries] = useState<Record<string, any>[] | null>(
-    null
-  );
+  const [countries, setCountries] = useState<ICountry[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -25,16 +25,15 @@ export default function Home() {
       {isLoading || countries?.length === 0 ? (
         <EmptyState
           message={
-            isLoading ? "Loading..." : "Country not found. Please try another one"
+            isLoading
+              ? "Loading..."
+              : "Country not found. Please try another one."
           }
         />
       ) : (
         <article className={styles.countries__wrapper}>
           {countries?.map((country) => (
-            <Link
-              to={`/${country.cca3.toLowerCase()}`}
-              key={country.name.common}
-            >
+            <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
               <Card
                 name={country.name.common}
                 population={country.population}

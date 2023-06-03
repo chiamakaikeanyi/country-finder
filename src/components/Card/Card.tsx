@@ -2,7 +2,10 @@ import React from "react";
 import styles from "./Card.module.scss";
 
 interface ICard {
-  flags: any;
+  flags: {
+    alt: string;
+    svg: string;
+  };
   name: string;
   population: number;
   region: string;

@@ -5,7 +5,7 @@ type ApiClientType = {
   path: string;
   options?: {
     method?: string;
-    params?: string;
+    params?: { fullText: boolean };
   };
 };
 
@@ -26,7 +26,7 @@ export const apiClient = async ({
 };
 
 export const getCountries = async () => {
-  return await apiClient({ path: "all" });
+  return await apiClient({ path: "/all" });
 };
 
 export const getCountryByCode = async (code: string) => {
@@ -36,7 +36,9 @@ export const getCountryByCode = async (code: string) => {
 export const getCountryByName = async (name: string) => {
   return await apiClient({
     path: `/name/${name.toLowerCase()}`,
-    options: { params: "?fullText=true" },
+    options: {
+      params: { fullText: true },
+    },
   });
 };
 

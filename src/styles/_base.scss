@@ -1,21 +1,25 @@
-@import "./colors.scss";
+@import "./colors";
 
 :root {
-  --primary-color: hsl(0, 0%, 100%);
-  --font-color: hsl(200, 15%, 8%);
-  --bg-color: hsl(0, 0%, 98%);
+  --primary-color: hsl(0deg 0% 100%);
+  --font-color: hsl(200deg 15% 8%);
+  --bg-color: hsl(0deg 0% 98%);
   --shadow: #e3e3e3;
 }
 
 [data-theme="dark"] {
-  --primary-color: hsl(209, 23%, 22%);
-  --font-color: hsl(0, 0%, 100%);
-  --bg-color: hsl(207, 26%, 17%);
+  --primary-color: hsl(209deg 23% 22%);
+  --font-color: hsl(0deg 0% 100%);
+  --bg-color: hsl(207deg 26% 17%);
   --shadow: #151b22;
 }
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline-color: $palette--dark-blue-tint1;
+  }
 }
 
 body {
@@ -59,7 +63,8 @@ h1,
 h2,
 h3,
 h4,
-h6 {
+h6,
+ul {
   margin: 0;
 }
 
