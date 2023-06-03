@@ -25,16 +25,15 @@ export default function Home() {
       {isLoading || countries?.length === 0 ? (
         <EmptyState
           message={
-            isLoading ? "Loading..." : "Country not found. Please try another one"
+            isLoading
+              ? "Loading..."
+              : "Country not found. Please try another one."
           }
         />
       ) : (
         <article className={styles.countries__wrapper}>
           {countries?.map((country) => (
-            <Link
-              to={`/${country.cca3.toLowerCase()}`}
-              key={country.name.common}
-            >
+            <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
               <Card
                 name={country.name.common}
                 population={country.population}

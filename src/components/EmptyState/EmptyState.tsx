@@ -16,7 +16,7 @@ export const EmptyState: React.FC<IProps> = ({ message }) => {
         speed={1}
         style={{ width: "300px", height: "300px" }}
       />
-      <h2>{message}</h2>
+      <h2  className={styles.content}>{message}</h2>
     </div>
   );
 };
