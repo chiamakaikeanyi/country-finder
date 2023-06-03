@@ -1,5 +1,65 @@
 @import "../../styles/converter";
+@import "../../styles/typography";
 
 .container {
   font-size: to-rem(16px);
+}
+
+.wrapper {
+  align-items: center;
+  column-gap: 7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: to-rem(50px);
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.content {
+  column-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: to-rem(20px) 0;
+}
+
+.info {
+  margin: to-rem(5px) 0;
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-right: to-rem(5px);
+  }
+
+  &__content {
+    text-transform: capitalize;
+    word-wrap: break-word;
+  }
+}
+
+.more_content {
+  align-items: center;
+  display: flex;
+
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    max-width: 350px;
+    padding: 10px 0;
+  }
+
+  &__item {
+    background-color: var(--primary-color);
+    margin: 5px;
+  }
+}
+
+.border_btn {
+  @include shadow;
+
+  margin: 2px;
 }
