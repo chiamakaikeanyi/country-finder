@@ -16,6 +16,10 @@
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline-color: $palette--dark-blue-tint1;
+  }
 }
 
 body {
@@ -59,7 +63,8 @@ h1,
 h2,
 h3,
 h4,
-h6 {
+h6,
+ul {
   margin: 0;
 }
 
