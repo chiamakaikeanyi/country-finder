@@ -16,7 +16,7 @@ Lets you discover countries around the world
 
 -   Flexbox
 -   CSS Grid
--   [Font Awesome](https://fontawesome.com). [Ionicons](https://ionicons.com) is also a good source
+-   [Font Awesome](https://fontawesome.com)
 -   [Netlify](https://www.netlify.com/)
 -   [ReactJs](https://reactjs.org/)
 -   [SCSS](https://sass-lang.com/)
