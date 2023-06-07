@@ -5,3 +5,9 @@ $font-weight-bolder: 800;
 @mixin shadow {
   box-shadow: 0 2px 10px var(--shadow);
 }
+
+@mixin hover-active {
+  &:hover {
+    @content;
+  }
+}
