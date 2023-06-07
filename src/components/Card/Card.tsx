@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.scss";
 
-interface ICard {
+interface IProps {
   flags: {
     alt: string;
     svg: string;
@@ -12,7 +12,7 @@ interface ICard {
   capital: string;
 }
 
-const Card: React.FC<ICard> = ({
+const Card: React.FC<IProps> = ({
   flags,
   name,
   population,

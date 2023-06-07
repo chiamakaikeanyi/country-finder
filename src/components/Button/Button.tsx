@@ -4,14 +4,19 @@ import { composeClass } from "../../utils";
 
 import type { ReactNode, MouseEventHandler } from "react";
 
-interface IButton {
-  label: string;
-  icon?: ReactNode;
+interface IProps {
   customClass?: string;
+  icon?: ReactNode;
+  label: string;
   onClick?: MouseEventHandler<HTMLElement>;
 }
 
-const Button = ({ icon, customClass = "", label, onClick }: IButton) => {
+const Button: React.FC<IProps> = ({
+  customClass = "",
+  icon,
+  label,
+  onClick,
+}) => {
   return (
     <button
       className={composeClass(styles.button, customClass)}
