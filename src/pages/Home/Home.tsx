@@ -83,21 +83,18 @@ export default function Home() {
 
       {filteredCountries && filteredCountries.length > 0 && (
         <h2 className={styles.search_result__count}>
-          {`Countries in ${
-            region ? (
-              <span className={styles.search_result__region}>{region}</span>
-            ) : (
-              "the world"
-            )
-          } - 
-           ${
-        filteredCountries?.length > 200
-          ? "More than 200 countries"
-          : `${filteredCountries?.length} ${
-            filteredCountries?.length > 1 ? "countries" : "country"
-          }`
-        }
-          `}
+          Countries in &nbsp;
+          {region ? (
+            <span className={styles.search_result__region}>{region}</span>
+          ) : (
+            "the world"
+          )}
+          &nbsp;-&nbsp;
+          {filteredCountries?.length > 200
+            ? "More than 200 countries"
+            : `${filteredCountries?.length} ${
+              filteredCountries?.length > 1 ? "countries" : "country"
+            }`}
         </h2>
       )}
 
