@@ -8,8 +8,7 @@ Discover countries around the world ⚡️
 
 -   ✨ [Features](#features)
 -   📋 [Process](#process)
--   💻 [Tools and Technologies](#tools-and-technologies)
--   📦 [Installation](#installation)
+-   💻 [Installation](#installation)
 -   🚀 [Launch](#launch)
 
 ### Features
@@ -26,15 +25,6 @@ Discover countries around the world ⚡️
 -   Accessible
 -   SEO optimized
 -   Mobile-first workflow
-
-### Tools and Technologies
-
--   Flexbox
--   CSS Grid
--   [Font Awesome](https://fontawesome.com)
--   [Netlify](https://www.netlify.com/)
--   [ReactJs](https://reactjs.org/)
--   [SCSS](https://sass-lang.com/)
 
 ### Installation
 
@@ -73,8 +63,10 @@ yarn
 
 ### Launch
 
-The browser is expected to launch the app on the browser on http://localhost:3000. Run the command below to start the web app
+Run the command below to start the web app
 
 ```sh
 yarn start
 ```
+
+The browser is expected to launch the app on the browser on http://localhost:3000.
