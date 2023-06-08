@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { getCountries, getCountryByCode } from "../../api-client";
-import styles from "./Details.module.scss";
+
+import { getCountries, getCountryByCode } from "../../services/api-client";
+
 import Button from "../../components/Button/Button";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import { ArrowLeftIcon } from "../../components/Icons";
-import { ICountry } from "../../types/Country";
+import styles from "./Details.module.scss";
+
+import type { ICountry } from "../../types/Country";
 
 export default function Details() {
+  const navigate = useNavigate();
   const { countryCode } = useParams();
-  const [country, setCountry] = useState<ICountry | null>(null);
 
+  const [country, setCountry] = useState<ICountry | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -69,6 +73,7 @@ export default function Details() {
         icon={<ArrowLeftIcon size={12} />}
         label="Back"
         customClass={styles.back_btn}
+        onClick={() => navigate(-1)}
       />
 
       <article className={styles.wrapper}>
@@ -145,7 +150,7 @@ export default function Details() {
                     <span className={styles.info__title}>
                       Top Level Domain:
                     </span>
-                    <span>{country?.tld.join(", ")}</span>
+                    <span>{country?.tld?.join(", ")}</span>
                   </p>
                   {country?.currencies && (
                     <p className={styles.info}>
@@ -164,7 +169,7 @@ export default function Details() {
                     <p className={styles.info}>
                       <span className={styles.info__title}>Languages:</span>
                       <span className={styles.info__content}>
-                        {Object.values(country.languages).join(", ")}
+                        {Object.values(country.languages)?.sort()?.join(", ")}
                       </span>
                     </p>
                   )}
@@ -182,7 +187,7 @@ export default function Details() {
                     <p className={styles.info}>
                       <span className={styles.info__title}>Timezone(s):</span>
                       <span className={styles.info__content}>
-                        {country.timezones.join(", ")}
+                        {country.timezones?.join(", ")}
                       </span>
                     </p>
                   )}
@@ -192,25 +197,22 @@ export default function Details() {
               <div className={styles.more_content}>
                 <>
                   <span className={styles.info__title}>Border Countries:</span>
-                  <ul className={styles.more_content__info}>
-                    {borders ? (
-                      borders.map((border) => (
-                        <li
-                          key={border.name.common}
-                          className={styles.more_content__item}
-                        >
-                          <Link to={`/${border?.cca3.toLowerCase()}`}>
-                            <Button
-                              label={border.name.common}
-                              customClass={styles.border_btn}
-                            />
+                  {borders ? (
+                    <ul className={styles.more_content__info}>
+                      {borders?.map((border) => (
+                        <li key={border.name.common}>
+                          <Link
+                            to={`/${border?.cca3.toLowerCase()}`}
+                            className={styles.more_content__item}
+                          >
+                            {border.name.common}
                           </Link>
                         </li>
-                      ))
-                    ) : (
-                      <span className={styles.more_content__item}>None</span>
-                    )}
-                  </ul>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span className={styles.info__content}>None</span>
+                  )}
                 </>
               </div>
             </div>

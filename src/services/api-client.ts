@@ -1,5 +1,5 @@
 import axios from "axios";
-import config from "./config";
+import config from "../config";
 
 type ApiClientType = {
   path: string;
@@ -31,17 +31,4 @@ export const getCountries = async () => {
 
 export const getCountryByCode = async (code: string) => {
   return await apiClient({ path: `/alpha/${code}` });
-};
-
-export const getCountryByName = async (name: string) => {
-  return await apiClient({
-    path: `/name/${name.toLowerCase()}`,
-    options: {
-      params: { fullText: true },
-    },
-  });
-};
-
-export const getCountriesByRegion = async (region: string) => {
-  return await apiClient({ path: `/region/${region.toLowerCase()}` });
 };

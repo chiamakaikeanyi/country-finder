@@ -13,10 +13,20 @@
   margin-top: to-rem(50px);
 }
 
+.back_btn {
+  @include shadow;
+
+  padding: to-rem(10 25);
+}
+
 .image {
   display: block;
   object-fit: cover;
   width: 100%;
+}
+
+.heading {
+  font-weight: $font-weight-bolder;
 }
 
 .content {
@@ -53,19 +63,11 @@
   }
 
   &__item {
+    @include shadow;
+
     background-color: var(--primary-color);
+    display: inline-block;
     margin: 5px;
+    padding: to-rem(5 25);
   }
-}
-
-.back_btn {
-  @include shadow;
-  padding: to-rem(10 25);
-}
-
-.border_btn {
-  @include shadow;
-
-  margin: 2px;
-  padding: to-rem(5 25);
 }

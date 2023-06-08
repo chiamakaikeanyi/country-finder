@@ -4,14 +4,14 @@
   align-items: center;
   background-color: var(--primary-color);
   border: none;
+  border-radius: to-rem(3px);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   outline-color: var(--primary-color);
   padding: to-rem(5 10);
-  border-radius: to-rem(3px);
 }
 
 .icon {
-  padding-right: to-rem(5);
+  margin-right: to-rem(5);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.scss";
 
-interface ICard {
+interface IProps {
   flags: {
     alt: string;
     svg: string;
@@ -12,7 +12,7 @@ interface ICard {
   capital: string;
 }
 
-const Card: React.FC<ICard> = ({
+const Card: React.FC<IProps> = ({
   flags,
   name,
   population,
@@ -29,21 +29,21 @@ const Card: React.FC<ICard> = ({
           width="150px"
           className={styles.image}
         />
-        <div className={styles.content}>
+        <div className={styles.details}>
           <h2 className={styles.heading}>{name}</h2>
           <p className={styles.info}>
-            <span className={styles.info__title}>Population:</span>
+            <span className={styles.info__title}>Population</span>
             <span className={styles.info__content}>
-              {population.toLocaleString()}
+              : {population.toLocaleString()}
             </span>
           </p>
           <p className={styles.info}>
-            <span className={styles.info__title}>Region:</span>
-            <span className={styles.info__content}>{region}</span>
+            <span className={styles.info__title}>Region</span>
+            <span className={styles.info__content}>: {region}</span>
           </p>
           <p className={styles.info}>
-            <span className={styles.info__title}>Capital:</span>
-            <span className={styles.info__content}>{capital}</span>
+            <span className={styles.info__title}>Capital</span>
+            <span className={styles.info__content}>: {capital}</span>
           </p>
         </div>
       </div>
