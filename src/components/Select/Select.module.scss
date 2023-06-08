@@ -1,0 +1,35 @@
+@import "../../styles/shared";
+
+.container {
+  @include shadow;
+
+  background-color: var(--primary-color);
+  border-radius: to-rem(3);
+  padding: to-rem(5 10);
+
+  @include md {
+    width: 20%;
+  }
+}
+
+.select {
+  appearance: none;
+  background: url("./arrow.svg") no-repeat var(--primary-color);
+  background-position: center right;
+  background-size: 10px;
+  border: none;
+  color: var(--input-color);
+  cursor: pointer;
+  line-height: 14px;
+  margin: 0;
+  padding: to-rem(10);
+  -webkit-padding-end: to-rem(20);
+  -moz-padding-end: to-rem(20);
+  -webkit-padding-start: to-rem(2);
+  -moz-padding-start: to-rem(2);
+  width: 100%;
+
+  svg > path {
+    height: 20px;
+  }
+}
