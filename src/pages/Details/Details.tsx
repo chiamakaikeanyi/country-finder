@@ -99,7 +99,7 @@ export default function Details() {
               className={styles.image}
             />
 
-            <div>
+            <div className={styles.details}>
               <h2 className={styles.heading}>{country?.name.common}</h2>
               <div className={styles.content}>
                 <div>

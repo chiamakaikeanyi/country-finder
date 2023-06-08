@@ -20,7 +20,8 @@
   box-sizing: border-box;
 
   &:focus {
-    outline-color: $palette--dark-blue-tint1;
+    outline: thin solid var(--font-color);
+    outline-offset: 0.25rem;
   }
 }
 
