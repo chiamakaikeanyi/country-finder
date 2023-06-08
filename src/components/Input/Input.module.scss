@@ -1,0 +1,35 @@
+@import "../../styles/converter";
+@import "../../styles/typography";
+
+.container {
+  @include shadow;
+
+  align-items: center;
+  background: var(--primary-color);
+  border-radius: to-rem(3);
+  color: var(--font-color);
+  display: flex;
+  padding: to-rem(5 10);
+  width: 40%;
+}
+
+.icon {
+  color: var(--input-color);
+  margin-right: to-rem(5);
+}
+
+.input {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--font-color);
+  outline-color: var(--primary-color);
+  width: 100%;
+
+  &::placeholder {
+    color: var(--input-color);
+  }
+
+  &:focus {
+    outline-color: var(--primary-color);
+  }
+}
