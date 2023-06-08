@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCountries } from "../../api-client";
+
+import { getCountries } from "../../services/api-client";
+import { sortByPopulationDescending } from "../../utils";
+
 import Card from "../../components/Card/Card";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import styles from "./Home.module.scss";
 
-import { ICountry } from "../../types/Country";
+import type { ICountry } from "../../types/Country";
 
 export default function Home() {
   const [countries, setCountries] = useState<ICountry[] | null>(null);
@@ -32,7 +35,7 @@ export default function Home() {
         />
       ) : (
         <article className={styles.countries__wrapper}>
-          {countries?.map((country) => (
+          {countries?.sort(sortByPopulationDescending)?.map((country) => (
             <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
               <Card
                 name={country.name.common}

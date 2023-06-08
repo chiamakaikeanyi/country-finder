@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { getCountries, getCountryByCode } from "../../api-client";
-import styles from "./Details.module.scss";
+
+import { getCountries, getCountryByCode } from "../../services/api-client";
+
 import Button from "../../components/Button/Button";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import { ArrowLeftIcon } from "../../components/Icons";
-import { ICountry } from "../../types/Country";
+import styles from "./Details.module.scss";
+
+import type { ICountry } from "../../types/Country";
 
 export default function Details() {
   const navigate = useNavigate();
