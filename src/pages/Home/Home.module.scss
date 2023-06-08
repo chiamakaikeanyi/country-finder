@@ -1,8 +1,9 @@
 @import "../../styles/breakpoint";
 @import "../../styles/converter";
+@import "../../styles/typography";
 
 .container {
-  font-size: to-rem(14px);
+  font-size: to-rem(14);
 }
 
 .content__filters {
@@ -10,8 +11,28 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include sm {
+  @include md {
     flex-direction: row;
+  }
+
+  & > * {
+    margin-bottom: to-rem(25);
+
+    @include md {
+      margin-bottom: to-rem(50);
+    }
+  }
+}
+
+.search_result {
+  &__count {
+    font-size: to-rem(14);
+    font-weight: $font-weight-bold;
+    margin-bottom: to-rem(10);
+  }
+
+  &__region {
+    text-transform: capitalize;
   }
 }
 
