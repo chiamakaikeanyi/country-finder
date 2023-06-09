@@ -8,7 +8,11 @@
 .main-content {
   margin: 0 auto;
   max-width: 1400px;
-  padding: to-rem(50px);
+  padding: to-rem(25);
+
+  @include md {
+    padding: to-rem(50);
+  }
 }
 
 .skip-to-main-content {

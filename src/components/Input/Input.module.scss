@@ -1,5 +1,6 @@
 @import "../../styles/converter";
 @import "../../styles/typography";
+@import "../../styles/breakpoint";
 
 .container {
   @include shadow;
@@ -10,7 +11,10 @@
   color: var(--font-color);
   display: flex;
   padding: to-rem(5 10);
-  width: 40%;
+
+  @include md {
+    width: 40%;
+  }
 }
 
 .icon {
@@ -23,13 +27,10 @@
   border: none;
   color: var(--font-color);
   outline-color: var(--primary-color);
+  padding: to-rem(10);
   width: 100%;
 
   &::placeholder {
     color: var(--input-color);
-  }
-
-  &:focus {
-    outline-color: var(--primary-color);
   }
 }
