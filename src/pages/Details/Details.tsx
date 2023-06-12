@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { getCountries, getCountryByCode } from "../../services/api-client";
+import {
+  getBorderCountriesByCodes,
+  getCountryByCode,
+} from "../../services/api-client";
 
 import Button from "../../components/Button/Button";
 import EmptyState from "../../components/EmptyState/EmptyState";
@@ -16,6 +19,8 @@ export default function Details() {
   const { countryCode } = useParams();
 
   const [country, setCountry] = useState<ICountry | null>(null);
+  const [borders, setBorders] = useState<ICountry[] | null>(null);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -23,39 +28,23 @@ export default function Details() {
     if (countryCode) {
       setIsLoading(true);
       getCountryByCode(countryCode).then((data) => {
-        if (data && data.status !== 400) {
-          setCountry(data[0]);
-        } else {
+        if (data?.status && data?.status !== 200) {
           setError(true);
+        } else {
+          setCountry(data);
         }
         setIsLoading(false);
       });
     }
   }, [countryCode]);
 
-  /**
-   * Temporal solution
-   * TODO: Use Context
-   */
-  const [countries, setCountries] = useState<ICountry[] | null>(null);
-  const [borders, setBorders] = useState<ICountry[] | null>(null);
-
   useEffect(() => {
-    getCountries().then((data) => {
-      setCountries(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    const getBorderCountries = (countryCodes: string[]) =>
-      countries?.filter((country) => countryCodes.includes(country.cca3));
-
     if (country?.borders) {
-      const borderCountries = getBorderCountries(country.borders);
-
-      if (borderCountries) setBorders(borderCountries);
+      getBorderCountriesByCodes(country.borders).then((data) => {
+        setBorders(data);
+      });
     }
-  }, [countryCode]);
+  }, [country]);
 
   return (
     <section data-testid="details_container" className={styles.container}>

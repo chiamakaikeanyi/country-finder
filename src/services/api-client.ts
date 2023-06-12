@@ -1,17 +1,25 @@
 import axios from "axios";
 import config from "../config";
 
+import type { ICountry } from "../types/Country";
+
 type ApiClientType = {
   path: string;
   options?: {
     method?: string;
-    params?: { fullText: boolean };
+    params?: { fields: string };
   };
 };
 
 export const apiClient = async ({
   path,
-  options = { method: "GET" },
+  options = {
+    method: "GET",
+    params: {
+      fields:
+        "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
+    },
+  },
 }: ApiClientType) => {
   return await axios({
     url: `${config.apiUrl}${path}`,
@@ -22,13 +30,21 @@ export const apiClient = async ({
     },
   })
     .then((response) => response.data)
-    .catch((error) => console.error(`Error: ${error}`));
+    .catch((error) => console.error(`Error retrieving data: ${error}`));
 };
 
 export const getCountries = async () => {
-  return await apiClient({ path: "/all" });
+  return await apiClient({
+    path: "/all",
+  });
 };
 
 export const getCountryByCode = async (code: string) => {
   return await apiClient({ path: `/alpha/${code}` });
+};
+
+export const getBorderCountriesByCodes = async (codes: string[]) => {
+  const response = await getCountries();
+
+  return response?.filter((country: ICountry) => codes.includes(country.cca3));
 };
