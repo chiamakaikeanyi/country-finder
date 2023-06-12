@@ -1,6 +1,8 @@
 import axios from "axios";
 import config from "../config";
 
+import type { ICountry } from "../types/Country";
+
 type ApiClientType = {
   path: string;
   options?: {
@@ -41,19 +43,15 @@ export const getCountryByCode = async (code: string) => {
   return await apiClient({ path: `/alpha/${code}` });
 };
 
-export const getBorderCountriesByCode = async (codes: string[]) => {
-  const details = [];
+export const getBorderCountriesByCodes = async (codes: string[]) => {
+  try {
+    const response = await getCountries();
 
-  for (const code of codes) {
-    try {
-      const response = await getCountryByCode(code);
-      if (response) {
-        details.push(...response);
-      }
-    } catch (error) {
-      console.error(`Error retrieving details for ${code}:`, error);
-    }
+    return response?.filter((country: ICountry) =>
+      codes.includes(country.cca3)
+    );
+  } catch (error) {
+    console.error("Error retrieving border countries:", error);
+    return [];
   }
-
-  return details;
 };

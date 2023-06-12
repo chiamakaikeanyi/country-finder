@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import {
-  getBorderCountriesByCode,
+  getBorderCountriesByCodes,
   getCountryByCode,
 } from "../../services/api-client";
 
@@ -40,7 +40,7 @@ export default function Details() {
 
   useEffect(() => {
     if (country?.borders) {
-      getBorderCountriesByCode(country.borders).then((data) => {
+      getBorderCountriesByCodes(country.borders).then((data) => {
         setBorders(data);
       });
     }
