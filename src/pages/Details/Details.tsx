@@ -28,13 +28,11 @@ export default function Details() {
     if (countryCode) {
       setIsLoading(true);
       getCountryByCode(countryCode).then((data) => {
-        if (data?.status && data?.status !== 200) {
-          setError(true);
-        } else {
-          setCountry(data);
-        }
+        setCountry(data);
         setIsLoading(false);
       });
+    } else {
+      setError(true);
     }
   }, [countryCode]);
 
@@ -66,7 +64,7 @@ export default function Details() {
       />
 
       <article className={styles.wrapper}>
-        {isLoading || error ? (
+        {isLoading || error || !country ? (
           <EmptyState
             message={
               isLoading
