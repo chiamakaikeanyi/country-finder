@@ -30,7 +30,7 @@ export const apiClient = async ({
     },
   })
     .then((response) => response.data)
-    .catch((error) => console.error(`Error: ${error}`));
+    .catch((error) => console.error(`Error retrieving data: ${error}`));
 };
 
 export const getCountries = async () => {
@@ -44,14 +44,7 @@ export const getCountryByCode = async (code: string) => {
 };
 
 export const getBorderCountriesByCodes = async (codes: string[]) => {
-  try {
-    const response = await getCountries();
+  const response = await getCountries();
 
-    return response?.filter((country: ICountry) =>
-      codes.includes(country.cca3)
-    );
-  } catch (error) {
-    console.error("Error retrieving border countries:", error);
-    return [];
-  }
+  return response?.filter((country: ICountry) => codes.includes(country.cca3));
 };
