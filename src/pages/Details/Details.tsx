@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { getCountries, getCountryByCode } from "../../services/api-client";
+import {
+  getBorderCountriesByCode,
+  getCountryByCode,
+} from "../../services/api-client";
 
 import Button from "../../components/Button/Button";
 import EmptyState from "../../components/EmptyState/EmptyState";
@@ -16,6 +19,8 @@ export default function Details() {
   const { countryCode } = useParams();
 
   const [country, setCountry] = useState<ICountry | null>(null);
+  const [borders, setBorders] = useState<ICountry[] | null>(null);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -33,29 +38,13 @@ export default function Details() {
     }
   }, [countryCode]);
 
-  /**
-   * Temporal solution
-   * TODO: Use Context
-   */
-  const [countries, setCountries] = useState<ICountry[] | null>(null);
-  const [borders, setBorders] = useState<ICountry[] | null>(null);
-
   useEffect(() => {
-    getCountries().then((data) => {
-      setCountries(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    const getBorderCountries = (countryCodes: string[]) =>
-      countries?.filter((country) => countryCodes.includes(country.cca3));
-
     if (country?.borders) {
-      const borderCountries = getBorderCountries(country.borders);
-
-      if (borderCountries) setBorders(borderCountries);
+      getBorderCountriesByCode(country.borders).then((data) => {
+        setBorders(data);
+      });
     }
-  }, [countryCode]);
+  }, [country]);
 
   return (
     <section data-testid="details_container" className={styles.container}>
