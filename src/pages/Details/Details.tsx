@@ -25,7 +25,7 @@ export default function Details() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (countryCode) {
+    if (countryCode && countryCode.length === 3) {
       setIsLoading(true);
       getCountryByCode(countryCode).then((data) => {
         if (data && data.status !== 400) {
@@ -35,6 +35,8 @@ export default function Details() {
         }
         setIsLoading(false);
       });
+    } else {
+      setError(true);
     }
   }, [countryCode]);
 
