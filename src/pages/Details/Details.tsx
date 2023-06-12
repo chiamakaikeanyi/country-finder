@@ -25,18 +25,16 @@ export default function Details() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (countryCode && countryCode.length === 3) {
+    if (countryCode) {
       setIsLoading(true);
       getCountryByCode(countryCode).then((data) => {
-        if (data && data.status !== 400) {
-          setCountry(data[0]);
-        } else {
+        if (data?.status && data?.status !== 200) {
           setError(true);
+        } else {
+          setCountry(data);
         }
         setIsLoading(false);
       });
-    } else {
-      setError(true);
     }
   }, [countryCode]);
 

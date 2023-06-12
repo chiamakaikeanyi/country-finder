@@ -13,7 +13,13 @@ type ApiClientType = {
 
 export const apiClient = async ({
   path,
-  options = { method: "GET" },
+  options = {
+    method: "GET",
+    params: {
+      fields:
+        "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
+    },
+  },
 }: ApiClientType) => {
   return await axios({
     url: `${config.apiUrl}${path}`,
@@ -30,12 +36,6 @@ export const apiClient = async ({
 export const getCountries = async () => {
   return await apiClient({
     path: "/all",
-    options: {
-      params: {
-        fields:
-          "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
-      },
-    },
   });
 };
 
