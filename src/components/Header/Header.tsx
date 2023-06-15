@@ -12,12 +12,8 @@ const Header: React.FC = () => {
           <h1>Where in the world?</h1>
         </Link>
       </nav>
-
-      <Button
-        label="Dark mode"
-        icon={<MoonIcon />}
-        customClass={styles.theme_switch}
-      />
+      <span className="sr-only">Switch to dark mode</span>
+      <Button label="" icon={<MoonIcon />} customClass={styles.theme_switch} />
     </header>
   );
 };
