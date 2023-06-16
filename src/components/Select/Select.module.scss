@@ -14,7 +14,7 @@
 
 .select {
   appearance: none;
-  background: url("./arrow.svg") no-repeat var(--primary-color);
+  background: var(--caret) no-repeat var(--primary-color);
   background-position: center right;
   background-size: 10px;
   border: none;
@@ -28,8 +28,4 @@
   -webkit-padding-start: to-rem(2);
   -moz-padding-start: to-rem(2);
   width: 100%;
-
-  svg > path {
-    height: 20px;
-  }
 }
