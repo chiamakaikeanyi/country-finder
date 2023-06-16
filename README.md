@@ -2,24 +2,13 @@
 
 Discover countries around the world ⚡️
 
-<!-- ![Design preview](./design/desktop-preview.jpg) -->
+<!-- ![Design preview](./design/dark_mode.png) -->
 
 ## Table of contents
-
-<!-- -   ✨ [Features](#features) -->
 
 -   📋 [Process](#process)
 -   💻 [Installation](#installation)
 -   🚀 [Launch](#launch)
-
-<!-- ### Features
-
--   View countries on the homepage
--   Search for a country
--   Filter countries by region
--   Click on a country to view detailed information
--   Click through to the border countries on the detail page
--   Toggle the color scheme between light and dark mode -->
 
 ### Process
 
@@ -72,4 +61,4 @@ yarn start
 
 The browser is expected to launch the app on the browser on http://localhost:3000.
 
-<!-- translations, internet connection fallback,  loading skeleton, tests, danger,  workflow, docker, grafana, kubernetes -->
+<!-- translations, loading skeleton, tests, danger,  workflow, docker, grafana, kubernetes -->
