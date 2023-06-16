@@ -6,6 +6,7 @@
   --input-color: hsl(0deg 0% 52%);
   --bg-color: hsl(0deg 0% 98%);
   --shadow: #e3e3e3;
+  --caret: url("../components/Icons/arrow.svg");
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@
   --input-color: hsl(0deg 0% 100%);
   --bg-color: hsl(207deg 26% 17%);
   --shadow: #151b22;
+  --caret: url("../components/Icons/arrow-white.svg");
 }
 
 * {
