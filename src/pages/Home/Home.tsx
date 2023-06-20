@@ -68,6 +68,7 @@ export default function Home() {
         <Input
           type="search"
           name="country_search"
+          label="Search"
           icon={<Search size={15} />}
           placeholder="Search for a country..."
           value={searchTerm}
