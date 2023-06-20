@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import { useQuery } from "@tanstack/react-query";
 import {
   getBorderCountriesByCodes,
   getCountryByCode,
@@ -12,37 +13,25 @@ import EmptyState from "../../components/EmptyState/EmptyState";
 import { ArrowLeftIcon } from "../../components/Icons";
 import styles from "./Details.module.scss";
 
-import type { ICountry } from "../../types/Country";
-
 export default function Details() {
   const navigate = useNavigate();
   const { countryCode } = useParams();
 
-  const [country, setCountry] = useState<ICountry | null>(null);
-  const [borders, setBorders] = useState<ICountry[] | null>(null);
+  const {
+    data: country,
+    isLoading: isCountryLoading,
+    isError: isCountryError,
+  } = useQuery({
+    queryKey: ["country", countryCode],
+    queryFn: () => getCountryByCode(countryCode || ""),
+    enabled: Boolean(countryCode), // only run if countryCode exist
+  });
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (countryCode) {
-      setIsLoading(true);
-      getCountryByCode(countryCode).then((data) => {
-        setCountry(data);
-        setIsLoading(false);
-      });
-    } else {
-      setError(true);
-    }
-  }, [countryCode]);
-
-  useEffect(() => {
-    if (country?.borders) {
-      getBorderCountriesByCodes(country.borders).then((data) => {
-        setBorders(data);
-      });
-    }
-  }, [country]);
+  const { data: borders } = useQuery({
+    queryKey: ["borderCountries", country?.borders],
+    queryFn: () => getBorderCountriesByCodes(country?.borders || []),
+    enabled: Boolean(country?.borders),
+  });
 
   return (
     <section data-testid="details_container" className={styles.container}>
@@ -64,12 +53,14 @@ export default function Details() {
       />
 
       <article className={styles.wrapper}>
-        {isLoading || error || !country ? (
+        {isCountryLoading || isCountryError || !country ? (
           <EmptyState
             message={
-              isLoading
+              isCountryLoading
                 ? "Loading..."
-                : "Country not found. Please try another one."
+                : isCountryError
+                  ? "An error occured. Please try again."
+                  : "Country not found. Please try another one."
             }
           />
         ) : (
