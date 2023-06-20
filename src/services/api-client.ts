@@ -14,7 +14,7 @@ type ApiClientType = {
 
 type ApiResponse<T> = Promise<T>;
 
-export const apiClient = async ({
+export const apiClient = async <T>({
   path,
   options = {
     method: "GET",
@@ -23,28 +23,33 @@ export const apiClient = async ({
         "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
     },
   },
-}: ApiClientType): ApiResponse<any> => {
-  return await axios({
-    url: `${config.apiUrl}${path}`,
-    method: options?.method,
-    data: options?.body,
-    params: options?.params,
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
-    .then((response) => response.data)
-    .catch((error) => console.error(`Error retrieving data: ${error}`));
+}: ApiClientType): ApiResponse<T> => {
+  return (
+    axios({
+      url: `${config.apiUrl}${path}`,
+      method: options?.method,
+      data: options?.body,
+      params: options?.params,
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.data as T)
+      .catch((error) => {
+        console.error(`Error retrieving data: ${error}`);
+        throw error;
+      })
+  );
 };
 
 export const getCountries = (): ApiResponse<ICountry[]> => {
-  return apiClient({
+  return apiClient<ICountry[]>({
     path: "/all",
   });
 };
 
 export const getCountryByCode = (code: string): ApiResponse<ICountry> => {
-  return apiClient({ path: `/alpha/${code}` });
+  return apiClient<ICountry>({ path: `/alpha/${code}` });
 };
 
 export const getBorderCountriesByCodes = async (
@@ -52,5 +57,5 @@ export const getBorderCountriesByCodes = async (
 ): ApiResponse<ICountry[]> => {
   const response = await getCountries();
 
-  return response?.filter((country: ICountry) => codes.includes(country.cca3));
+  return response.filter((country: ICountry) => codes.includes(country.cca3));
 };
