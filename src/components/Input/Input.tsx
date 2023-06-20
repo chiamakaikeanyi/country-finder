@@ -11,8 +11,10 @@ interface IProps {
   value?: string;
   defaultValue?: string;
   icon?: ReactNode;
-  label?: string;
+  label: string;
   customClass?: string;
+  autoComplete?: string;
+  maxLength?: number;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -20,17 +22,21 @@ const Input: React.FC<IProps> = ({
   customClass = "",
   value,
   icon,
+  label,
   name,
   placeholder,
   defaultValue,
   type = "text",
   onChange,
+  autoComplete = "off",
+  maxLength = 20,
 }) => {
   return (
     <div className={composeClass(styles.container, customClass)}>
       <label htmlFor={name} className="visually-hidden">
-        Search
+        {label}
       </label>
+
       {icon ? <span className={styles.icon}>{icon}</span> : null}
       <input
         id={name}
@@ -39,8 +45,10 @@ const Input: React.FC<IProps> = ({
         placeholder={placeholder}
         defaultValue={defaultValue}
         value={value}
-        onChange={onChange}
         className={styles.input}
+        autoComplete={autoComplete}
+        maxLength={maxLength}
+        onChange={onChange}
       />
     </div>
   );

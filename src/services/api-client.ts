@@ -12,6 +12,8 @@ type ApiClientType = {
   };
 };
 
+type ApiResponse<T> = Promise<T>;
+
 export const apiClient = async ({
   path,
   options = {
@@ -21,7 +23,7 @@ export const apiClient = async ({
         "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
     },
   },
-}: ApiClientType) => {
+}: ApiClientType): ApiResponse<any> => {
   return await axios({
     url: `${config.apiUrl}${path}`,
     method: options?.method,
@@ -35,17 +37,19 @@ export const apiClient = async ({
     .catch((error) => console.error(`Error retrieving data: ${error}`));
 };
 
-export const getCountries = () => {
+export const getCountries = (): ApiResponse<ICountry[]> => {
   return apiClient({
     path: "/all",
   });
 };
 
-export const getCountryByCode = (code: string) => {
+export const getCountryByCode = (code: string): ApiResponse<ICountry> => {
   return apiClient({ path: `/alpha/${code}` });
 };
 
-export const getBorderCountriesByCodes = async (codes: string[]) => {
+export const getBorderCountriesByCodes = async (
+  codes: string[]
+): ApiResponse<ICountry[]> => {
   const response = await getCountries();
 
   return response?.filter((country: ICountry) => codes.includes(country.cca3));

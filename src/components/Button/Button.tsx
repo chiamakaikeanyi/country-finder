@@ -16,11 +16,13 @@ const Button: React.FC<IProps> = ({
   icon,
   label,
   onClick,
+  ...rest
 }) => {
   return (
     <button
       className={composeClass(styles.button, customClass)}
       onClick={onClick}
+      {...rest}
     >
       {icon ? <span className={styles.icon}>{icon}</span> : null}
       {label}
