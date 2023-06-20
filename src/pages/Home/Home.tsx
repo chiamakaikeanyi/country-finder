@@ -39,7 +39,6 @@ export default function Home() {
     },
     refetchInterval: 1000 * 60 * 60, // 60 minutes
     enabled: Boolean(countries),
-    initialData: [],
   });
 
   const { data: filteredCountries } = useQuery({
@@ -83,7 +82,7 @@ export default function Home() {
         <Select
           placeholder="Filter by Region"
           name="regions"
-          options={uniqueRegions}
+          options={uniqueRegions || []}
           onChange={handleFilter}
         />
       </div>
