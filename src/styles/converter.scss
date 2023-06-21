@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
 /* stylelint-disable */
 
 // Base off Foundation for Sites
@@ -11,7 +14,7 @@ $global-font-size: 100% !default;
 // @param {Number} $num - Number to strip unit from.
 // @returns {Number} The same number, sans unit.
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+  @return math.div($num, $num * 0 + 1);
 }
 
 // Converts a pixel value to matching rem value. *Any* value passed, regardless of unit, is assumed to be a pixel value. By default, the base pixel value used to calculate the rem value is taken from the `$global-font-size` variable.
@@ -22,16 +25,16 @@ $global-font-size: 100% !default;
 // @returns {Number} A number in rems, calculated based on the given value and the base pixel value. rem values are passed through as is.
 @function convert-to-rem($value, $base: null) {
   // Check if the value is a number
-  @if type-of($value) != "number" {
-    @warn inspect($value)+' was passed to to-rem(), which is not a number.';
+  @if meta.type-of($value) != "number" {
+    @warn meta.inspect($value)+' was passed to to-rem(), which is not a number.';
 
     @return $value;
   }
 
   // Calculate rem if units for $value is not rem
 
-  @if unit($value) != "rem" {
-    $value: strip-unit($value) / strip-unit($base) * 1rem;
+  @if math.unit($value) != "rem" {
+    $value: math.div(strip-unit($value), strip-unit($base)) * 1rem;
   }
 
   // Turn 0rem into 0
@@ -49,7 +52,7 @@ $global-font-size: 100% !default;
 // @returns {List} A list of converted values.
 @function to-rem($values, $base: null) {
   $rem-values: ();
-  $count: length(
+  $count: list.length(
     $values
   ); // If no base is defined, defer to the global font size
 
@@ -59,13 +62,13 @@ $global-font-size: 100% !default;
 
   // If the base font size is a %, then multiply it by 16px
   // This is because 100% font size = 16px in most all browsers
-  @if unit($base) == "%" {
-    $base: ($base / 100%) * 16px;
+  @if math.unit($base) == "%" {
+    $base: math.div($base, 100%) * 16px;
   }
 
   // Using rem as base allows correct scaling
 
-  @if unit($base) == "rem" {
+  @if math.unit($base) == "rem" {
     $base: strip-unit($base) * 16px;
   }
 
@@ -74,7 +77,10 @@ $global-font-size: 100% !default;
   }
 
   @for $i from 1 through $count {
-    $rem-values: append($rem-values, convert-to-rem(nth($values, $i), $base));
+    $rem-values: list.append(
+      $rem-values,
+      convert-to-rem(list.nth($values, $i), $base)
+    );
   }
 
   @return $rem-values;
@@ -83,21 +89,21 @@ $global-font-size: 100% !default;
 // Converts a unitless, pixel, or rem value to em.
 @function to-em($values) {
   $em-values: ();
-  $count: length($values);
+  $count: list.length($values);
 
   @if ($count > 1) {
     @for $i from 1 through $count {
-      $value: nth(
+      $value: list.nth(
         $values,
         $i
       ); // Pixel and unitless values are converted to rems
 
-      @if unit($value) == "px" or unitless($value) {
+      @if math.unit($value) == "px" or math.is-unitless($value) {
         $value: to-rem($value, $base: 16px);
       }
 
       // Then the value is converted to ems
-      $em-values: append($em-values, strip-unit($value) * 1em);
+      $em-values: list.append($em-values, strip-unit($value) * 1em);
     }
 
     @return $em-values;
@@ -105,7 +111,7 @@ $global-font-size: 100% !default;
 
   $value: $values;
 
-  @if unit($value) == "px" or unitless($value) {
+  @if math.unit($value) == "px" or math.is-unitless($value) {
     $value: to-rem($value, $base: 16px);
   }
 

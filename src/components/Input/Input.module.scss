@@ -1,25 +1,25 @@
-@import "../../styles/converter";
-@import "../../styles/typography";
-@import "../../styles/breakpoint";
+@use "../../styles/converter";
+@use "../../styles/typography";
+@use "../../styles/breakpoint";
 
 .container {
-  @include shadow;
+  @include typography.shadow;
 
   align-items: center;
   background: var(--primary-color);
-  border-radius: to-rem(3);
+  border-radius: converter.to-rem(3);
   color: var(--font-color);
   display: flex;
-  padding: to-rem(5 10);
+  padding: converter.to-rem(5 10);
 
-  @include md {
+  @include breakpoint.md {
     width: 40%;
   }
 }
 
 .icon {
   color: var(--input-color);
-  margin-right: to-rem(5);
+  margin-right: converter.to-rem(5);
 }
 
 .input {
@@ -27,7 +27,7 @@
   border: none;
   color: var(--font-color);
   outline-color: var(--primary-color);
-  padding: to-rem(10);
+  padding: converter.to-rem(10);
   width: 100%;
 
   &::placeholder {

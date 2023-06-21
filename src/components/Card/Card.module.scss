@@ -1,32 +1,35 @@
-@import "../../styles/shared";
+@use "../../styles/shared";
+@use "../../styles/colors";
+@use "../../styles/converter";
+@use "../../styles/typography";
 
 .container {
-  @include shadow;
+  @include typography.shadow;
 
   background-color: var(--primary-color);
-  border-radius: to-rem(8px);
+  border-radius: converter.to-rem(8);
   color: var(--font-color);
   word-wrap: break-word;
 }
 
 .image {
-  border-top-left-radius: to-rem(8px);
-  border-top-right-radius: to-rem(8px);
+  border-top-left-radius: converter.to-rem(8);
+  border-top-right-radius: converter.to-rem(8);
   box-shadow: 0 1px 1px var(--shadow);
   display: block;
-  height: to-rem(220px);
+  height: converter.to-rem(220);
   object-fit: cover;
   width: 100%;
 }
 
 .details {
-  border-top: 1px solid $palette--light-gray-tint3;
-  padding: to-rem(30px);
+  border-top: 1px solid colors.$palette--light-gray-tint3;
+  padding: converter.to-rem(30);
 }
 
 .heading {
-  font-weight: $font-weight-bolder;
-  margin-bottom: to-rem(10px);
+  font-weight: typography.$font-weight-bolder;
+  margin-bottom: converter.to-rem(10);
 }
 
 .info {
@@ -34,6 +37,6 @@
   margin: 0;
 
   &__title {
-    font-weight: $font-weight-bold;
+    font-weight: typography.$font-weight-bold;
   }
 }

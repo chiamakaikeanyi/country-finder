@@ -1,19 +1,22 @@
-@import "../../styles/shared";
+@use "../../styles/shared";
+@use "../../styles/breakpoint";
+@use "../../styles/converter";
+@use "../../styles/typography";
 
 .header {
   align-items: center;
   background-color: var(--primary-color);
   display: flex;
-  font-weight: $font-weight-bolder;
-  height: to-rem(80px);
+  font-weight: typography.$font-weight-bolder;
+  height: converter.to-rem(80);
   justify-content: space-between;
-  padding: 0 to-rem(20);
+  padding: 0 converter.to-rem(20);
   position: sticky;
   top: 0;
   z-index: 2;
 
-  @include sm {
-    padding: to-rem(30);
+  @include breakpoint.sm {
+    padding: converter.to-rem(30);
   }
 }
 
@@ -22,5 +25,5 @@
 }
 
 .theme_switch {
-  padding: to-rem(20);
+  padding: converter.to-rem(20);
 }
