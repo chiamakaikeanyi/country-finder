@@ -12,6 +12,7 @@
 .image {
   border-top-left-radius: to-rem(8px);
   border-top-right-radius: to-rem(8px);
+  box-shadow: 0 1px 1px var(--shadow);
   display: block;
   height: to-rem(220px);
   object-fit: cover;
