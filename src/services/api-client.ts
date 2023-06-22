@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import config from "../config";
+
 import type { ICountry } from "../types/Country";
 
 type ApiClientType = {
