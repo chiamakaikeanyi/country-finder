@@ -8,7 +8,7 @@ interface IProps {
   message: string;
 }
 
-export const EmptyState: React.FC<IProps> = ({ message }) => {
+const EmptyState: React.FC<IProps> = ({ message }) => {
   return (
     <div className={styles.container} data-testid="empty_state_container">
       <Player
