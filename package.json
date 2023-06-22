@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress run --component && cypress run --headless",
     "eject": "react-scripts eject",
     "lint": "eslint --cache ./src",
     "lint:fix": "eslint 'src/**/**/*.ts{,x}' --fix",
@@ -35,6 +35,7 @@
     "prettier:format": "prettier --write .",
     "cypress": "cypress run --component",
     "cypress:open": "cypress open --component",
+    "cypress:integration": "cypress run --headless",
     "prepare": "husky install"
   },
   "lint-staged": {
