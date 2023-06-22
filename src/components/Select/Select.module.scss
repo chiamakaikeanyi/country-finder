@@ -1,13 +1,16 @@
-@import "../../styles/shared";
+@use "../../styles/shared";
+@use "../../styles/breakpoint";
+@use "../../styles/converter";
+@use "../../styles/typography";
 
 .container {
-  @include shadow;
+  @include typography.shadow;
 
   background-color: var(--primary-color);
-  border-radius: to-rem(3);
-  padding: to-rem(5 10);
+  border-radius: converter.to-rem(3);
+  padding: converter.to-rem(5 10);
 
-  @include md {
+  @include breakpoint.md {
     width: 20%;
   }
 }
@@ -22,10 +25,10 @@
   cursor: pointer;
   line-height: 14px;
   margin: 0;
-  padding: to-rem(10);
-  -webkit-padding-end: to-rem(20);
-  -moz-padding-end: to-rem(20);
-  -webkit-padding-start: to-rem(2);
-  -moz-padding-start: to-rem(2);
+  padding: converter.to-rem(10);
+  -webkit-padding-end: converter.to-rem(20);
+  -moz-padding-end: converter.to-rem(20);
+  -webkit-padding-start: converter.to-rem(2);
+  -moz-padding-start: converter.to-rem(2);
   width: 100%;
 }

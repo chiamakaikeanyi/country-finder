@@ -1,4 +1,7 @@
-@import "./styles/shared";
+@use "styles/shared";
+@use "styles/breakpoint";
+@use "styles/colors";
+@use "styles/converter";
 
 .container {
   min-height: 100vh;
@@ -8,20 +11,20 @@
 .main-content {
   margin: 0 auto;
   max-width: 1400px;
-  padding: to-rem(25);
+  padding: converter.to-rem(25);
 
-  @include md {
-    padding: to-rem(50);
+  @include breakpoint.md {
+    padding: converter.to-rem(50);
   }
 }
 
 .skip-to-main-content {
-  background: $palette--red;
-  color: $palette--white;
-  left: to-rem(-999px);
-  padding: to-rem(5px);
+  background: colors.$palette--red;
+  color: colors.$palette--white;
+  left: converter.to-rem(-999);
+  padding: converter.to-rem(5);
   position: absolute;
-  top: to-rem(-50px);
+  top: converter.to-rem(-50);
   transition: top 1s ease-out;
   z-index: -999;
 

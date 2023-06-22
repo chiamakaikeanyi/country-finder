@@ -27,10 +27,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache .",
-    "lint:fix": "eslint 'src/**/*.ts{,x}' --fix",
-    "lint:style": "stylelint src/**/*.scss",
-    "lint:style-fix": "stylelint '**/*.scss' --fix",
+    "lint": "eslint --cache ./src",
+    "lint:fix": "eslint 'src/**/**/*.ts{,x}' --fix",
+    "lint:style": "stylelint src/**/**/*.scss",
+    "lint:style-fix": "stylelint 'src/**/**/*.scss' --fix",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
     "cypress": "cypress run --component",
@@ -38,8 +38,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "yarn run lint:fix",
-    "src/**/*.scss": "yarn run lint:style-fix"
+    "src/**/**/*.{ts,tsx}": "yarn run lint:fix",
+    "src/**/**/*.scss": "yarn run lint:style-fix"
   },
   "husky": {
     "hooks": {

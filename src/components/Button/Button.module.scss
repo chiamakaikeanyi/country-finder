@@ -1,18 +1,18 @@
-@import "../../styles/converter";
+@use "../../styles/converter";
 
 .button {
   align-items: center;
   background-color: var(--primary-color);
   border: none;
-  border-radius: to-rem(3px);
+  border-radius: converter.to-rem(3);
   color: var(--font-color);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   outline-color: var(--primary-color);
-  padding: to-rem(5 10);
+  padding: converter.to-rem(5 10);
 }
 
 .icon {
-  margin-right: to-rem(5);
+  margin-right: converter.to-rem(5);
 }

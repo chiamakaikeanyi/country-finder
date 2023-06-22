@@ -1,9 +1,9 @@
-@import "../../styles/breakpoint";
-@import "../../styles/converter";
-@import "../../styles/typography";
+@use "../../styles/breakpoint";
+@use "../../styles/converter";
+@use "../../styles/typography";
 
 .container {
-  font-size: to-rem(14);
+  font-size: converter.to-rem(14);
 }
 
 .content__filters {
@@ -11,24 +11,24 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include md {
+  @include breakpoint.md {
     flex-direction: row;
   }
 
   & > * {
-    margin-bottom: to-rem(25);
+    margin-bottom: converter.to-rem(25);
 
-    @include md {
-      margin-bottom: to-rem(50);
+    @include breakpoint.md {
+      margin-bottom: converter.to-rem(50);
     }
   }
 }
 
 .search_result {
   &__count {
-    font-size: to-rem(14);
-    font-weight: $font-weight-bold;
-    margin-bottom: to-rem(10);
+    font-size: converter.to-rem(14);
+    font-weight: typography.$font-weight-bold;
+    margin-bottom: converter.to-rem(10);
   }
 
   &__region {
@@ -41,7 +41,7 @@
   grid-gap: 32px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
-  @include xl {
+  @include breakpoint.xl {
     .countries__wrapper {
       grid-gap: 3rem;
       width: 100%;
