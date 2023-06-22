@@ -12,15 +12,13 @@ import Details from "./pages/Details/Details";
 import EmptyState from "./components/EmptyState/EmptyState";
 import "./App.scss";
 
-const queryClient = new QueryClient(
-  {
-    defaultOptions: {
-      queries: {
-        staleTime: 1000 * 60 * 60, // 60 minutes
-      },
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 60, // 60 minutes
     },
-  }
-);
+  },
+});
 
 function App() {
   const { isOnline } = useNetworkStatus();
@@ -29,7 +27,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <BrowserRouter>
-          <div className="container">
+          <div className="container" data-testid="app_container">
             <a href="#main" className="skip-to-main-content">
               Skip to main content
             </a>
@@ -39,7 +37,12 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/:countryCode" element={<Details />} />
-                  <Route path="*" element={<p>Error</p>} />
+                  <Route
+                    path="*"
+                    element={
+                      <EmptyState message="An error occured. Please try again." />
+                    }
+                  />
                 </Routes>
               ) : (
                 <EmptyState message="No internet connection" />

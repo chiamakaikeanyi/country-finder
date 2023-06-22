@@ -6,6 +6,7 @@ import styles from "./Input.module.scss";
 
 interface IProps {
   name: string;
+  testId: string;
   placeholder?: string;
   type?: string;
   value?: string;
@@ -30,6 +31,7 @@ const Input: React.FC<IProps> = ({
   onChange,
   autoComplete = "off",
   maxLength = 20,
+  testId
 }) => {
   return (
     <div className={composeClass(styles.container, customClass)}>
@@ -48,6 +50,7 @@ const Input: React.FC<IProps> = ({
         className={styles.input}
         autoComplete={autoComplete}
         maxLength={maxLength}
+        data-testid={testId}
         onChange={onChange}
       />
     </div>

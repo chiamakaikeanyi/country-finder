@@ -50,6 +50,7 @@ export default function Details() {
         label="Back"
         customClass={styles.back_btn}
         onClick={() => navigate(-1)}
+        testId="back_button"
       />
 
       <article className={styles.wrapper}>
@@ -77,7 +78,10 @@ export default function Details() {
               className={styles.image}
             />
 
-            <div className={styles.details}>
+            <div
+              className={styles.details}
+              data-testid={country?.cca3.toLowerCase()}
+            >
               <h2 className={styles.heading}>{country?.name.common}</h2>
               <div className={styles.content}>
                 <div>
@@ -174,11 +178,22 @@ export default function Details() {
 
               <div className={styles.more_content}>
                 <>
-                  <span className={styles.info__title}>Border Countries:</span>
+                  <span
+                    className={styles.info__title}
+                    data-testid="border_countries"
+                  >
+                    Border Countries:
+                  </span>
                   {borders ? (
-                    <ul className={styles.more_content__info}>
+                    <ul
+                      className={styles.more_content__info}
+                      data-testid="border_countries_list"
+                    >
                       {borders?.map((border) => (
-                        <li key={border.name.common}>
+                        <li
+                          key={border.name.common}
+                          data-testid={border?.cca3.toLowerCase()}
+                        >
                           <Link
                             to={`/${border?.cca3.toLowerCase()}`}
                             className={styles.more_content__item}

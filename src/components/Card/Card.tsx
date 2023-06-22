@@ -10,6 +10,7 @@ interface IProps {
   population: number;
   region: string;
   capital: string;
+  cca3: string;
 }
 
 const Card: React.FC<IProps> = ({
@@ -18,9 +19,10 @@ const Card: React.FC<IProps> = ({
   population,
   region,
   capital,
+  cca3,
 }) => {
   return (
-    <article className={styles.container}>
+    <article className={styles.container} data-testid={cca3}>
       <div className={styles.card}>
         <img
           src={flags.svg}

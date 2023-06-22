@@ -8,6 +8,7 @@ interface IProps {
   customClass?: string;
   icon?: ReactNode;
   label: string;
+  testId?: string;
   onClick?: MouseEventHandler<HTMLElement>;
 }
 
@@ -15,6 +16,7 @@ const Button: React.FC<IProps> = ({
   customClass = "",
   icon,
   label,
+  testId,
   onClick,
   ...rest
 }) => {
@@ -22,6 +24,7 @@ const Button: React.FC<IProps> = ({
     <button
       className={composeClass(styles.button, customClass)}
       onClick={onClick}
+      data-testid={testId}
       {...rest}
     >
       {icon ? <span className={styles.icon}>{icon}</span> : null}
