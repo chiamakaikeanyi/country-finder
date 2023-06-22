@@ -1,8 +1,8 @@
 import React from "react";
+import type { MouseEventHandler, ReactNode } from "react";
+
 import styles from "./Button.module.scss";
 import { composeClass } from "../../utils";
-
-import type { ReactNode, MouseEventHandler } from "react";
 
 interface IProps {
   customClass?: string;

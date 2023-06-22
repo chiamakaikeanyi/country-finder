@@ -1,17 +1,17 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
 
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+import styles from "./Details.module.scss";
+import Button from "../../components/Button/Button";
+import EmptyState from "../../components/EmptyState/EmptyState";
+import { ArrowLeftIcon } from "../../components/Icons";
 import {
   getBorderCountriesByCodes,
   getCountryByCode,
 } from "../../services/api-client";
-
-import Button from "../../components/Button/Button";
-import EmptyState from "../../components/EmptyState/EmptyState";
-import { ArrowLeftIcon } from "../../components/Icons";
-import styles from "./Details.module.scss";
 
 export default function Details() {
   const navigate = useNavigate();

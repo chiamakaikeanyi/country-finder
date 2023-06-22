@@ -1,8 +1,8 @@
 import React from "react";
-import { composeClass } from "../../utils";
-
 import type { ChangeEventHandler, ReactNode } from "react";
+
 import styles from "./Input.module.scss";
+import { composeClass } from "../../utils";
 
 interface IProps {
   name: string;
@@ -31,7 +31,7 @@ const Input: React.FC<IProps> = ({
   onChange,
   autoComplete = "off",
   maxLength = 20,
-  testId
+  testId,
 }) => {
   return (
     <div className={composeClass(styles.container, customClass)}>

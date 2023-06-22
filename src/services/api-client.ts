@@ -1,6 +1,6 @@
 import axios from "axios";
-import config from "../config";
 
+import config from "../config";
 import type { ICountry } from "../types/Country";
 
 type ApiClientType = {
@@ -24,22 +24,20 @@ export const apiClient = async <T>({
     },
   },
 }: ApiClientType): ApiResponse<T> => {
-  return (
-    axios({
-      url: `${config.apiUrl}${path}`,
-      method: options?.method,
-      data: options?.body,
-      params: options?.params,
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((response) => response.data as T)
-      .catch((error) => {
-        console.error(`Error retrieving data: ${error}`);
-        throw error;
-      })
-  );
+  return axios({
+    url: `${config.apiUrl}${path}`,
+    method: options?.method,
+    data: options?.body,
+    params: options?.params,
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.data as T)
+    .catch((error) => {
+      console.error(`Error retrieving data: ${error}`);
+      throw error;
+    });
 };
 
 export const getCountries = (): ApiResponse<ICountry[]> => {

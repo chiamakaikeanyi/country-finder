@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { useQuery } from "@tanstack/react-query";
-import { getCountries } from "../../services/api-client";
-import { sortByPopulationDescending } from "../../utils";
+import { Link } from "react-router-dom";
 
+import styles from "./Home.module.scss";
 import Card from "../../components/Card/Card";
 import EmptyState from "../../components/EmptyState/EmptyState";
+import { Search } from "../../components/Icons";
 import Input from "../../components/Input/Input";
 import Select from "../../components/Select/Select";
-import { Search } from "../../components/Icons";
-import styles from "./Home.module.scss";
+import { getCountries } from "../../services/api-client";
+import { sortByPopulationDescending } from "../../utils";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -91,7 +91,7 @@ export default function Home() {
 
       {filteredCountries && filteredCountries.length > 0 && (
         <h2 className={styles.search_result__count}>
-          Countries in &nbsp;
+          Countries in{" "}
           {region ? (
             <span className={styles.search_result__region}>{region}</span>
           ) : (
