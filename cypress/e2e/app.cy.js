@@ -11,6 +11,7 @@ const selectors = {
   back_button: '[data-testid="back_button"]',
   border_countries: '[data-testid="border_countries"]',
   border_countries_list: '[data-testid="border_countries_list"]',
+  empty_state_container: '[data-testid="empty_state_container"]',
 };
 
 describe("App", () => {
@@ -69,8 +70,17 @@ describe("App", () => {
     cy.url().should("include", "/nld");
 
     // navigates back when the Back button is clicked
-    cy.wait(500);
     cy.get(selectors.back_button).click();
     cy.url().should("contain", "/deu");
+  });
+});
+
+describe("Error", () => {
+  it("renders error page without crashing", () => {
+    cy.visit("/deut");
+    cy.get(selectors.empty_state_container).should("exist");
+
+    cy.wait(Cypress.config("pageLoadTimeout"));
+    cy.contains("An error occured. Please try again.").should("be.visible");
   });
 });
