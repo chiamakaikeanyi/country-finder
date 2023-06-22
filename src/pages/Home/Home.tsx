@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
-
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 import styles from "./Home.module.scss";
 import Card from "../../components/Card/Card";

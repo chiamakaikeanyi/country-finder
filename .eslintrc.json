@@ -52,12 +52,7 @@
         ],
         "newlines-between": "always",
         "pathGroups": [
-          { "group": "builtin", "pattern": "react", "position": "before" },
-          {
-            "group": "external",
-            "pattern": "@tanstack/**",
-            "position": "after"
-          }
+          { "group": "builtin", "pattern": "react", "position": "before" }
         ],
         "pathGroupsExcludedImportTypes": ["builtin"]
       }

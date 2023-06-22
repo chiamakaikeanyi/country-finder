@@ -1,9 +1,8 @@
 import React from "react";
 
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
-import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Details.module.scss";
 import Button from "../../components/Button/Button";
