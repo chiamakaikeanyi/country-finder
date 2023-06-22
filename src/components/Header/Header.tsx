@@ -28,6 +28,7 @@ const Header: React.FC = () => {
         }
         icon={theme === "dark" ? <SunIcon color="#fff" /> : <MoonIcon />}
         customClass={styles.theme_switch}
+        testId="theme_switch"
         onClick={handleThemeChange}
       />
     </header>

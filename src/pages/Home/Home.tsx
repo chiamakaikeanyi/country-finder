@@ -77,11 +77,13 @@ export default function Home() {
           icon={<Search size={15} />}
           placeholder="Search for a country..."
           value={searchTerm}
+          testId="country_search"
           onChange={handleSearch}
         />
         <Select
           placeholder="Filter by Region"
           name="regions"
+          testId="regions"
           options={uniqueRegions || []}
           onChange={handleFilter}
         />
@@ -115,7 +117,10 @@ export default function Home() {
           }
         />
       ) : (
-        <article className={styles.countries__wrapper}>
+        <article
+          className={styles.countries__wrapper}
+          data-testid="countries_list"
+        >
           {filteredCountries?.map((country) => (
             <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
               <Card
@@ -124,6 +129,7 @@ export default function Home() {
                 region={country.region}
                 capital={country.capital}
                 flags={country.flags}
+                cca3={country.cca3.toLowerCase()}
               />
             </Link>
           ))}

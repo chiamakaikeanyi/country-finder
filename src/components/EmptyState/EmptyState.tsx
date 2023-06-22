@@ -8,7 +8,7 @@ interface IProps {
 
 export const EmptyState: React.FC<IProps> = ({ message }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="empty_state_container">
       <Player
         src="https://assets4.lottiefiles.com/packages/lf20_RiLwoG.json"
         loop
@@ -16,7 +16,7 @@ export const EmptyState: React.FC<IProps> = ({ message }) => {
         speed={1}
         style={{ width: "300px", height: "300px" }}
       />
-      <h2  className={styles.content}>{message}</h2>
+      <h2 className={styles.content}>{message}</h2>
     </div>
   );
 };
