@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../../context/ThemeContext";
+
 import styles from "./Header.module.scss";
+import { ThemeContext } from "../../context/ThemeContext";
 import Button from "../Button/Button";
 import { MoonIcon, SunIcon } from "../Icons";
 

@@ -1,8 +1,7 @@
 import React from "react";
+import type { ChangeEventHandler } from "react";
 
 import styles from "./Select.module.scss";
-
-import type { ChangeEventHandler } from "react";
 
 interface IProps {
   customClass?: string;

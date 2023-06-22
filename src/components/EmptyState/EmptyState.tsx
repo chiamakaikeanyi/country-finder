@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Player } from "@lottiefiles/react-lottie-player";
+
 import styles from "./EmptyState.module.scss";
 
 interface IProps {
