@@ -15,7 +15,7 @@
 .image {
   border-top-left-radius: converter.to-rem(8);
   border-top-right-radius: converter.to-rem(8);
-  box-shadow: 0 1px 1px var(--shadow);
+  box-shadow: 0 0 1px var(--shadow);
   display: block;
   height: converter.to-rem(220);
   object-fit: cover;
@@ -23,7 +23,6 @@
 }
 
 .details {
-  border-top: 1px solid colors.$palette--light-gray-tint3;
   padding: converter.to-rem(30);
 }
 
