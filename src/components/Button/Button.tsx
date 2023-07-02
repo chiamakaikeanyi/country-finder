@@ -7,6 +7,7 @@ import { composeClass } from "../../utils";
 interface IProps {
   customClass?: string;
   icon?: ReactNode;
+  iconPosition?: string;
   label: string;
   testId?: string;
   onClick?: MouseEventHandler<HTMLElement>;
@@ -15,6 +16,7 @@ interface IProps {
 const Button: React.FC<IProps> = ({
   customClass = "",
   icon,
+  iconPosition = "left",
   label,
   testId,
   onClick,
@@ -27,8 +29,13 @@ const Button: React.FC<IProps> = ({
       data-testid={testId}
       {...rest}
     >
-      {icon ? <span className={styles.icon}>{icon}</span> : null}
+      {icon && iconPosition === "left" ? (
+        <span className={styles.icon}>{icon}</span>
+      ) : null}
       {label}
+      {icon && iconPosition === "right" ? (
+        <span className={styles.icon}>{icon}</span>
+      ) : null}
     </button>
   );
 };
