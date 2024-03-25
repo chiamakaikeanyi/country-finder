@@ -36,6 +36,13 @@
   }
 }
 
+.results_container {
+  display: grid;
+  gap: converter.to-rem(32);
+  grid-template-columns: 3fr 2fr;
+  margin: 0 auto;
+}
+
 .countries__wrapper {
   display: grid;
   grid-gap: 32px;
@@ -47,4 +54,11 @@
       width: 100%;
     }
   }
+}
+
+.map__wrapper {
+  bottom: converter.to-rem(10);
+  position: sticky;
+  top: converter.to-rem(80);
+  z-index: 1;
 }

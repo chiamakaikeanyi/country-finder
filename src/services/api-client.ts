@@ -21,7 +21,7 @@ export const apiClient = async <T>({
     method: "GET",
     params: {
       fields:
-        "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders",
+        "cca3,flags,name,population,region,subregion,capital,tld,currencies,languages,car,timezones,borders,latlng",
     },
   },
 }: ApiClientType): ApiResponse<T> => {

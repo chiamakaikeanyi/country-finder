@@ -1,3 +1,5 @@
+import type { LatLngExpression } from "leaflet";
+
 export interface ICountry {
   cca3: string;
   flags: {
@@ -20,4 +22,5 @@ export interface ICountry {
   };
   timezones: string[];
   borders: string[] | null;
+  latlng: LatLngExpression;
 }

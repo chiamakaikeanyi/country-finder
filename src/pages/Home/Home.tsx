@@ -9,6 +9,7 @@ import Card from "../../components/Card/Card";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import { Search } from "../../components/Icons";
 import Input from "../../components/Input/Input";
+import Map from "../../components/Map/Map";
 import Select from "../../components/Select/Select";
 import { getCountries } from "../../services/api-client";
 import { sortByPopulationDescending } from "../../utils";
@@ -107,35 +108,41 @@ export default function Home() {
         </h2>
       )}
 
-      {isLoading || isError || filteredCountries?.length === 0 ? (
-        <EmptyState
-          message={
-            isLoading
-              ? "Loading..."
-              : isError
-              ? "An error occured. Please try again."
-              : "Country not found. Please try another one."
-          }
-        />
-      ) : (
-        <article
-          className={styles.countries__wrapper}
-          data-testid="countries_list"
-        >
-          {filteredCountries?.map((country) => (
-            <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
-              <Card
-                name={country.name.common}
-                population={country.population}
-                region={country.region}
-                capital={country.capital}
-                flags={country.flags}
-                cca3={country.cca3.toLowerCase()}
-              />
-            </Link>
-          ))}
-        </article>
-      )}
+      <div data-testid="results_container" className={styles.results_container}>
+        {isLoading || isError || filteredCountries?.length === 0 ? (
+          <EmptyState
+            message={
+              isLoading
+                ? "Loading..."
+                : isError
+                  ? "An error occured. Please try again."
+                  : "Country not found. Please try another one."
+            }
+          />
+        ) : (
+          <article
+            className={styles.countries__wrapper}
+            data-testid="countries_list"
+          >
+            {filteredCountries?.map((country) => (
+              <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
+                <Card
+                  name={country.name.common}
+                  population={country.population}
+                  region={country.region}
+                  capital={country.capital}
+                  flags={country.flags}
+                  cca3={country.cca3.toLowerCase()}
+                />
+              </Link>
+            ))}
+          </article>
+        )}
+
+        <section className={styles.map__wrapper}>
+          <Map filteredCountries={filteredCountries} />
+        </section>
+      </div>
     </section>
   );
 }
