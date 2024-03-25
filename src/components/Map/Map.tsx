@@ -4,7 +4,10 @@ import { Icon } from "leaflet";
 import PropTypes from "prop-types";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
+import { formatNumber } from "../../utils";
+
 import type { ICountry } from "types/Country";
+
 import "./Map.scss";
 
 const markerIcon = new Icon({
@@ -24,7 +27,7 @@ const Map = (props: { filteredCountries: ICountry[] | undefined }) => {
           <Popup>
             <b>{country?.name?.common}</b>
             <br />
-            <b>Population</b>: {country?.population}
+            <b>Population</b>: {formatNumber(country?.population)}
           </Popup>
         </Marker>
       ))}

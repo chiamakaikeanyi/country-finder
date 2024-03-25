@@ -23,3 +23,13 @@ export const sortByPopulationDescending = (a: ICountry, b: ICountry) => {
 
   return 0;
 };
+
+export const formatNumber = (number = 0) => new Intl.NumberFormat().format(number);
+
+export const getRegionPopulation = (filteredCountries: ICountry[]) => {
+  const totalPopulation = filteredCountries?.reduce(
+    (acc, val) => acc + val.population,
+    0
+  );
+  return formatNumber(totalPopulation);
+};

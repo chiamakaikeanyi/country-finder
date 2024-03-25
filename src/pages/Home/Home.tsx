@@ -115,8 +115,8 @@ export default function Home() {
               isLoading
                 ? "Loading..."
                 : isError
-                  ? "An error occured. Please try again."
-                  : "Country not found. Please try another one."
+                ? "An error occured. Please try again."
+                : "Country not found. Please try another one."
             }
           />
         ) : (
