@@ -20,7 +20,7 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link to="/" className={styles.logo}>
-          <h1>Where in the world?</h1>
+          <h1>World View</h1>
         </Link>
       </nav>
       <Button
