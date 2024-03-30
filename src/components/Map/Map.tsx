@@ -1,13 +1,12 @@
 import React from "react";
 
 import { Icon } from "leaflet";
-import PropTypes from "prop-types";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 
 import { formatNumber } from "../../utils";
 
-import type { ICountry } from "types/Country";
+import type { ICountry } from "../../types/Country";
 
 import "./Map.scss";
 
@@ -16,7 +15,11 @@ const markerIcon = new Icon({
   iconSize: [50, 50],
 });
 
-const Map = (props: { filteredCountries: ICountry[] | undefined }) => {
+interface IProps {
+  countries: ICountry[] | undefined;
+}
+
+const Map: React.FC<IProps> = ({ countries }) => {
   return (
     <MapContainer center={[10, 20]} zoom={3} scrollWheelZoom={false} id="map">
       <TileLayer
@@ -24,7 +27,7 @@ const Map = (props: { filteredCountries: ICountry[] | undefined }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MarkerClusterGroup chunkedLoading>
-        {props.filteredCountries?.map((country: ICountry) => (
+        {countries?.map((country: ICountry) => (
           <Marker
             position={country?.latlng}
             icon={markerIcon}
@@ -40,10 +43,6 @@ const Map = (props: { filteredCountries: ICountry[] | undefined }) => {
       </MarkerClusterGroup>
     </MapContainer>
   );
-};
-
-Map.propTypes = {
-  filteredCountries: PropTypes.array,
 };
 
 export default Map;

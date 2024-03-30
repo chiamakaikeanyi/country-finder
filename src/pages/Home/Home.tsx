@@ -2,14 +2,11 @@
 import React, { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 
 import styles from "./Home.module.scss";
-import Card from "../../components/Card/Card";
-import EmptyState from "../../components/EmptyState/EmptyState";
 import { Search } from "../../components/Icons";
 import Input from "../../components/Input/Input";
-import Map from "../../components/Map/Map";
+import SearchResults from "../../components/SearchResults/SearchResults";
 import Select from "../../components/Select/Select";
 import { getCountries } from "../../services/api-client";
 import { sortByPopulationDescending } from "../../utils";
@@ -91,58 +88,12 @@ export default function Home() {
         />
       </div>
 
-      {filteredCountries && filteredCountries.length > 0 && (
-        <h2 className={styles.search_result__count}>
-          Countries in{" "}
-          {region ? (
-            <span className={styles.search_result__region}>{region}</span>
-          ) : (
-            "the world"
-          )}
-          &nbsp;-&nbsp;
-          {filteredCountries?.length > 200
-            ? "More than 200 countries"
-            : `${filteredCountries?.length} ${
-                filteredCountries?.length > 1 ? "countries" : "country"
-              }`}
-        </h2>
-      )}
-
-      <div data-testid="results_container" className={styles.results_container}>
-        {isLoading || isError || filteredCountries?.length === 0 ? (
-          <EmptyState
-            message={
-              isLoading
-                ? "Loading..."
-                : isError
-                ? "An error occured. Please try again."
-                : "Country not found. Please try another one."
-            }
-          />
-        ) : (
-          <article
-            className={styles.countries__wrapper}
-            data-testid="countries_list"
-          >
-            {filteredCountries?.map((country) => (
-              <Link to={`/${country.cca3.toLowerCase()}`} key={country.cca3}>
-                <Card
-                  name={country.name.common}
-                  population={country.population}
-                  region={country.region}
-                  capital={country.capital}
-                  flags={country.flags}
-                  cca3={country.cca3.toLowerCase()}
-                />
-              </Link>
-            ))}
-          </article>
-        )}
-
-        <section className={styles.map__wrapper}>
-          <Map filteredCountries={filteredCountries} />
-        </section>
-      </div>
+      <SearchResults
+        countries={filteredCountries}
+        region={region}
+        isError={isError}
+        isLoading={isLoading}
+      />
     </section>
   );
 }
