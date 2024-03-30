@@ -67,7 +67,7 @@ describe("App", () => {
     cy.get(selectors.border_countries).should("exist");
 
     cy.get(selectors.border_countries_list).find("li").first().click();
-    cy.url().should("include", "/nld");
+    cy.url().should("include", "/pol");
 
     // navigates back when the Back button is clicked
     cy.get(selectors.back_button).click();
