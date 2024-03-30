@@ -46,7 +46,9 @@ const Card: React.FC<IProps> = ({
           </p>
           <p className={styles.info}>
             <span className={styles.info__title}>Capital</span>
-            <span className={styles.info__content}>: {capital}</span>
+            <span className={styles.info__content}>
+              : {capital.length > 0 ? capital : "Unknown"}
+            </span>
           </p>
         </div>
       </div>

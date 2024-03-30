@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
@@ -101,8 +102,8 @@ export default function Home() {
           {filteredCountries?.length > 200
             ? "More than 200 countries"
             : `${filteredCountries?.length} ${
-              filteredCountries?.length > 1 ? "countries" : "country"
-            }`}
+                filteredCountries?.length > 1 ? "countries" : "country"
+              }`}
         </h2>
       )}
 
@@ -112,8 +113,8 @@ export default function Home() {
             isLoading
               ? "Loading..."
               : isError
-                ? "An error occured. Please try again."
-                : "Country not found. Please try another one."
+              ? "An error occured. Please try again."
+              : "Country not found. Please try another one."
           }
         />
       ) : (
