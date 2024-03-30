@@ -17,7 +17,7 @@ export const Search: React.FC<IProps> = ({
       viewBox="0 0 512 512"
       aria-hidden="true"
       focusable="false"
-      data-icon="sun"
+      data-icon="search"
       className={className}
       style={{ width: size, height: size }}
     >
