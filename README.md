@@ -2,7 +2,9 @@
 
 Discover countries around the world ⚡️
 
-![Design preview](./design/dark_mode.png)
+![Home Page Design preview](./design/dark_mode.png)
+
+![Details Page Design preview](./design/details_dark_mode.png)
 
 ## Table of contents
 
