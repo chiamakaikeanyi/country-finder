@@ -128,12 +128,14 @@ export default function Details() {
                 </div>
 
                 <div>
-                  <p className={styles.info}>
-                    <span className={styles.info__title}>
-                      Top Level Domain:
-                    </span>
-                    <span>{country?.tld?.join(", ")}</span>
-                  </p>
+                  {country?.tld && (
+                    <p className={styles.info}>
+                      <span className={styles.info__title}>
+                        Top Level Domain:
+                      </span>
+                      <span>{country?.tld?.join(", ")}</span>
+                    </p>
+                  )}
                   {country?.currencies && (
                     <p className={styles.info}>
                       <span className={styles.info__title}>Currencies:</span>
